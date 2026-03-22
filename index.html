@@ -124,9 +124,18 @@ font-style:italic;
 <script>
 
 function start(){
-document.getElementById("opening").style.display="none";
-document.getElementById("music").play();
+    document.getElementById("opening").style.display="none";
+
+    let music = document.getElementById("music");
+    music.volume = 0.5;
+
+    setTimeout(()=>{
+        music.play().catch(err => {
+            console.log("Autoplay error:", err);
+        });
+    }, 300);
 }
+                
 
 /* scroll animation */
 
